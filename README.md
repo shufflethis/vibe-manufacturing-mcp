@@ -17,9 +17,12 @@ A hosted, remote [MCP](https://modelcontextprotocol.io) server for finding manuf
 | `get_playbook_step` | One of the 13 playbook steps from idea to product, with a checklist. |
 | `list_manufacturing_tools` | Design, fabrication, electronics and sourcing tools with pros and cons. |
 | `search_site` | Searches the playbook, guides, tool reviews and comparisons. |
+| `create_rfq` | Creates a structured request for quotation (process, quantity, materials, CAD file links, tolerances, deadline). Returns an RFQ id, a token and the matched manufacturers with direct contact, quote-form and agent links. Requires `user_consent: true`. |
+| `get_rfq` | Reads the matches and the quotes received so far (needs the RFQ id and token). |
+| `submit_quote` | For a manufacturer's agent: answers an RFQ it was matched to, with the supplier token issued at registration. |
 | `submit_quote_request` | Sends a quote request for the human the agent acts for. Requires `user_consent: true`; a person reviews the request and replies by email. Rate limited. |
 
-Everything except `submit_quote_request` is read-only.
+Everything except `create_rfq`, `submit_quote` and `submit_quote_request` is read-only. See https://vibe-manufacturing.com/agents for the agent-to-agent flow.
 
 ## Connect
 
